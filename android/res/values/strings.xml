@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">xica</string>
+<string name="settings">Postavke</string>
+<string name="save">Spremi</string>
+<string name="wrongSettings">Krive postavke, provjerite opet!</string>
+<string name="checking">Provjeravam...</string>
+<string name="errorConnectivity">Provjerite internet vezu!</string>
+<string name="errorHandling">Greška u podacima!</string>
+<string name="editAccount">Uredi Xicu</string>
+<string name="about_us">Upute:\nXstat - ako nastavite ovakvim tempom koliko će vam ostati do kraja mjeseca (crveno znači da neće Xica &quot;izdržati&quot;).\n\nAplikacija je izdana pod GNU GPL3 licencom.\n\nAutori:\nJosip Stuhli\nJosip Šokčević\n\nZahvale:\nDino Balen - dizajn sučelja i ikone\n\nKontaktirajte nas na: info@tehnofobija.com!</string>
+<string name="about">O aplikaciji</string>
+<string name="loading">Učitavanje...</string>
+</resources>

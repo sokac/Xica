@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+	<LinearLayout android:layout_width="fill_parent" android:layout_height="53sp" android:background="@drawable/racun" android:id="@+id/llracun">
+	  <LinearLayout android:orientation="vertical" android:layout_weight="2" android:layout_width="wrap_content" android:layout_height="fill_parent" android:paddingLeft="10sp"  android:paddingTop="6sp">
+	   <TextView android:id="@+id/restoran" android:maxLength="22" android:textStyle="bold" android:textColor="#000000" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+	   <TextView android:id="@+id/vrijemer" android:textColor="#000000" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+	  </LinearLayout>
+	  <TextView android:id="@+id/iznosr" android:layout_weight="1" android:textColor="#000000" android:textSize="20sp" android:paddingRight="6sp" android:gravity="center_vertical|right" android:layout_width="wrap_content" android:layout_height="fill_parent"></TextView>
+	  <ImageView android:layout_width="50sp" android:tag="desnomax" android:layout_height="53sp" android:src="@drawable/desno"/>
+	</LinearLayout>
+	
+	<TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/tlzartikli">
+	    	    
+	</TableLayout>
+</LinearLayout>

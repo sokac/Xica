@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1"
+    android:background="@drawable/back">
+	
+	<RelativeLayout
+      android:layout_width="fill_parent"
+      android:layout_height="265sp"
+      android:layout_weight="1"
+      android:background="@drawable/header">
+        <ImageView 
+            android:id="@+id/slika"
+            android:layout_width="85sp"
+            android:layout_height="85sp"
+            android:maxHeight="85sp"
+            android:padding="10sp"
+            android:src="@drawable/human" />
+        <TextView
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:id="@+id/korisnik"
+            android:paddingTop="6sp"
+            android:text="Ime i prezime"
+            android:textColor="#ffffff"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/slika" />
+        <TextView
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:id="@+id/xstatt"
+            android:text="Xstat: "
+            android:layout_below="@id/korisnik"
+            android:layout_alignLeft="@id/korisnik" />
+        <TextView  
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:id="@+id/xstat"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/xstatt"
+            android:layout_below="@id/korisnik" />
+        <TextView  
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:text="Razina prehrane: "
+            android:id="@+id/razinaprehrane"
+            android:layout_below="@id/xstatt"
+            android:layout_alignLeft="@id/korisnik" />
+		<TextView  
+		    android:layout_width="wrap_content" 
+		    android:layout_height="wrap_content" 
+		    android:id="@+id/razina"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/razinaprehrane"
+            android:layout_below="@id/xstatt" />
+		<LinearLayout android:layout_width="fill_parent" android:id="@+id/llt" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_alignParentBottom="true" android:paddingBottom="2sp">
+			<TextView android:gravity="center_horizontal" android:id="@+id/textView2" android:layout_weight="1" android:text="Na računu" android:layout_height="fill_parent" android:layout_width="fill_parent"></TextView>
+			<TextView android:gravity="center_horizontal" android:id="@+id/textView3" android:layout_weight="1" android:text="Za danas" android:layout_height="fill_parent" android:layout_width="fill_parent"></TextView>
+		</LinearLayout>
+		<LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:layout_above="@id/llt">
+			<TextView android:gravity="center_horizontal" android:layout_weight="1" android:id="@+id/stanje" android:layout_height="fill_parent" android:layout_width="fill_parent" android:textStyle="bold" android:textSize="17sp" android:textColor="#ffffff"></TextView>
+			<TextView android:gravity="center_horizontal" android:layout_weight="1" android:id="@+id/ostalo" android:layout_height="fill_parent" android:layout_width="fill_parent" android:textStyle="bold" android:textSize="17sp" android:textColor="#ffffff"></TextView>
+		</LinearLayout>
+     
+
+    </RelativeLayout>
+	<ScrollView  
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1">
+	    <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical" android:id="@+id/racuni">
+        </LinearLayout>
+	</ScrollView>
+</LinearLayout>

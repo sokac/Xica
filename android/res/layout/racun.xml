@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	 android:orientation="vertical"
+     android:layout_width="fill_parent" android:layout_height="fill_parent"
+     android:minWidth="300dip">
+	<TextView  
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" 
+	    android:id="@+id/sankLinija"
+	    android:paddingLeft="30dip" />
+	<TextView  
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" 
+	    android:id="@+id/vrijeme"
+	    android:paddingLeft="30dip" />
+	<TextView  
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" 
+	    android:id="@+id/iznos"
+	    android:paddingLeft="30dip" />
+          
+     <ScrollView
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:padding="10dip">
+	    <TableLayout
+	    	android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/artikli">
+            
+        </TableLayout>
+     </ScrollView>     
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:layout_height="wrap_content">
+    <TextView android:id="@+id/tvartikl" android:maxLength="20" android:layout_weight="1" android:textColor="#ffffff" android:paddingRight="6sp" android:layout_width="wrap_content" android:layout_height="fill_parent"></TextView>
+    <TextView android:id="@+id/tvkol" android:layout_weight="1" android:paddingRight="6sp" android:layout_width="wrap_content" android:layout_height="fill_parent"></TextView>
+    <TextView android:id="@+id/tviznos" android:layout_weight="1" android:paddingRight="6sp" android:layout_width="wrap_content" android:layout_height="fill_parent"></TextView>
+</TableRow>
