@@ -19,14 +19,15 @@ public final class R {
         public static final int ic_menu_about=0x7f020005;
         public static final int ic_menu_edit=0x7f020006;
         public static final int icon=0x7f020007;
-        public static final int login_background=0x7f020008;
-        public static final int login_jmbag=0x7f020009;
-        public static final int login_jmbg=0x7f02000a;
-        public static final int login_prijava=0x7f02000b;
-        public static final int login_prijavap=0x7f02000c;
-        public static final int login_text=0x7f02000d;
-        public static final int racun=0x7f02000e;
-        public static final int racun_overlay=0x7f02000f;
+        public static final int login=0x7f020008;
+        public static final int login_background=0x7f020009;
+        public static final int login_jmbag=0x7f02000a;
+        public static final int login_jmbg=0x7f02000b;
+        public static final int login_prijava=0x7f02000c;
+        public static final int login_prijavap=0x7f02000d;
+        public static final int login_text=0x7f02000e;
+        public static final int racun=0x7f02000f;
+        public static final int racun_overlay=0x7f020010;
     }
     public static final class id {
         public static final int about=0x7f07001c;
@@ -34,12 +35,11 @@ public final class R {
         public static final int edit=0x7f07001b;
         public static final int iznos=0x7f070016;
         public static final int iznosr=0x7f070012;
-        public static final int jmbag=0x7f07001a;
-        public static final int jmbg=0x7f070019;
         public static final int korisnik=0x7f070001;
         public static final int llracun=0x7f07000f;
         public static final int llt=0x7f070006;
         public static final int ostalo=0x7f07000a;
+        public static final int password=0x7f070019;
         public static final int racuni=0x7f07000b;
         public static final int razina=0x7f070005;
         public static final int razinaprehrane=0x7f070004;
@@ -54,6 +54,7 @@ public final class R {
         public static final int tvartikl=0x7f07000c;
         public static final int tviznos=0x7f07000e;
         public static final int tvkol=0x7f07000d;
+        public static final int username=0x7f07001a;
         public static final int vrijeme=0x7f070015;
         public static final int vrijemer=0x7f070011;
         public static final int xstat=0x7f070003;

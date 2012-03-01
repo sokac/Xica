@@ -31,6 +31,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -47,12 +48,12 @@ import android.widget.Toast;
 public class xica extends Activity {
 	public static final String SP = "postavke";
 	private ProgressDialog dialog;
-	private String jmbag;
-	private String jmbg;
+	private String username;
+	private String password;
 	private SharedPreferences settings;
 	protected getXica provjera;
 	protected getRacun gRacun;
-	protected ImageView imView; // slika korisnika, drugacije rijesiti?
+	protected ImageView imView;
 	
 		/** Called when the activity is first created. */
 		@Override
@@ -70,9 +71,9 @@ public class xica extends Activity {
 		}
 		public void focusedW(){
 				settings = getSharedPreferences(SP, 0);
-				jmbag=settings.getString("jmbag", "");
-				jmbg=settings.getString("jmbg", "");
-				if(jmbag.length()!=10 && jmbg.length()!=13){  // first time?
+				username=settings.getString("username", "");
+				password=settings.getString("password", "");
+				if(username.length() < 3 && password.length() < 3){  // first time?
 					Toast.makeText(getApplicationContext(), R.string.wrongSettings, Toast.LENGTH_SHORT).show();
 					Intent i1=new Intent(this, editSettings.class);
 					startActivityForResult(i1, 1);
@@ -120,8 +121,8 @@ public class xica extends Activity {
 					try {
 							// Add your data  
 							List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);  
-							nameValuePairs.add(new BasicNameValuePair("jmbag", jmbag));  
-							nameValuePairs.add(new BasicNameValuePair("jmbg", jmbg));
+							nameValuePairs.add(new BasicNameValuePair("username", username));  
+							nameValuePairs.add(new BasicNameValuePair("password", password));
 							httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));  
 				
 							// Execute HTTP Post Request  
@@ -140,6 +141,7 @@ public class xica extends Activity {
 					dialog.dismiss();
 				}
 				if(reply.length()<20 || reply.startsWith("FAIL")){
+					Log.e("test", reply);
 					if(reply.compareTo("net")==0){
 						Toast.makeText(getApplicationContext(), R.string.errorConnectivity, Toast.LENGTH_SHORT).show();
 					}else{
@@ -254,7 +256,7 @@ public class xica extends Activity {
 					// END
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
-					//e.printStackTrace();
+					e.printStackTrace();
 					Toast.makeText(getApplicationContext(), R.string.errorConnectivity, Toast.LENGTH_SHORT).show();
 				}
 			}
@@ -283,8 +285,8 @@ public class xica extends Activity {
 				try {
 						// Add your data  
 						List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);  
-						nameValuePairs.add(new BasicNameValuePair("jmbag", jmbag));  
-						nameValuePairs.add(new BasicNameValuePair("jmbg", jmbg));
+						nameValuePairs.add(new BasicNameValuePair("username", username));  
+						nameValuePairs.add(new BasicNameValuePair("password", password));
 						nameValuePairs.add(new BasicNameValuePair("racun", Integer.toString(racun)));
 						httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));  
 						

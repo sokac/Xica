@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:background="@drawable/login_background">
+	android:background="@drawable/login_background"
+	android:focusable="true"
+	android:focusableInTouchMode="true">
 
 	<ImageButton android:layout_height="wrap_content"
 		android:id="@+id/save"
@@ -24,30 +26,30 @@
 	   android:layout_toLeftOf="@id/save"
 	   android:src="@drawable/login_text" />
 		
-	<EditText android:id="@+id/jmbg"
+	<EditText android:id="@+id/password"
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
-		android:layout_weight="1"
+		android:layout_weight="2"
 		android:background="@drawable/login_jmbg"
-		android:inputType="number"
+		android:inputType="textPassword"
 		android:textColor="#ffffff"
 		android:paddingLeft="5dip"
 		android:paddingRight="5dip"
-		android:hint="jmbg"
+		android:hint="lozinka"
 		android:layout_above="@id/save"
 		android:layout_alignRight="@id/save" />
 
-	<EditText android:id="@+id/jmbag"
+	<EditText android:id="@+id/username"
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
 		android:background="@drawable/login_jmbag"
 		android:layout_weight="1"
-		android:inputType="number"
+		android:inputType="text"
 		android:textColor="#ffffff"
 		android:paddingLeft="5dip"
 		android:paddingRight="5dip"
-		android:hint="jmbag"
-		android:layout_above="@id/jmbg"
-		android:layout_alignRight="@id/jmbg" />
+		android:hint="korisnik@ustanova.hr"
+		android:layout_above="@id/password"
+		android:layout_alignRight="@id/password" />
 
 </RelativeLayout>
