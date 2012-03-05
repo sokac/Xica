@@ -37,7 +37,7 @@ Class Xica {
                 }
 
                 if(preg_match('%<span id="rightframe_PreostalaSubvencijaLabel"><font face="Verdana" size="2">([^<]+?)</font></span>%', $html, $match))
-                    $this->stanje = $match[1];
+                    $this->stanje = (float) str_replace(',', '.', $match[1]);
                 else {
                     $errorMsg = 'Greska prilikom ocitavanja stanja';
                     return false;
@@ -91,7 +91,7 @@ Class Xica {
 		}
 
         if(preg_match('%<span id="rightframe_Label2">([0-9,]+)</span>%', $html, $match)) {
-            $this->ukupnoPotroseno = $match[1];
+            $this->ukupnoPotroseno = (float)str_replace(',', '.', $match[1]);
         } else {
             $errorMsg = 'Greska prilikom ocitavanja ukupne potrosnje';
             return false;
@@ -124,8 +124,8 @@ Class Xica {
 			for($i = 0; $i < count($match[0]); $i++) {
 				$ret['artikli'][$i]['naziv'] = $match[1][$i];
 				$ret['artikli'][$i]['komada'] = $match[2][$i];
-				$ret['artikli'][$i]['ukupno'] = $match[3][$i];
-				$ret['artikli'][$i]['subvencija'] = $match[4][$i];
+				$ret['artikli'][$i]['ukupno'] = (float)str_replace(',', '.', $match[3][$i]);
+				$ret['artikli'][$i]['subvencija'] = (float)str_replace(',', '.', $match[4][$i]);
 			}
 		}
         return $ret;
@@ -146,8 +146,9 @@ Class Xica {
 }
 
 $xica = new Xica();
-if($xica->login($_REQUEST['username'], $_REQUEST['password'], $error) == false)
-    die('FAIL:' . $error);
+if($xica->login($_REQUEST['username'], $_REQUEST['password'], $error) == false) {
+	die('FAIL:' . $error);
+}
 
 $xica->pregledRacuna();
 
