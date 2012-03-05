@@ -26,6 +26,8 @@ Class Xica {
             $data['Submit'] = 'Prijavi se';
             $html = $this->aspParser->getData(ASPParser::METHOD_POST, 'https://login.aaiedu.hr/sso/module.php/core/loginuserpass.php?', $data);
             if(preg_match('/name="SAMLResponse" value="([^"]+)/', $html, $match)) {
+
+
                 $html = $this->aspParser->getData(ASPParser::METHOD_POST, 'http://www.cap.srce.hr/login.ashx', array('SAMLResponse' => $match[1]));
                 if(preg_match('%<span id="rightframe_ImePrezimeLabel"><b><font face="Verdana" size="3">([^<]+?)</font></b></span>%', $html, $match))
                     $this->korisnik = $match[1];
@@ -33,6 +35,7 @@ Class Xica {
                     $errorMsg = 'Greska prilikom ocitavanja imena';
                     return false;
                 }
+
                 if(preg_match('%<span id="rightframe_PreostalaSubvencijaLabel"><font face="Verdana" size="2">([^<]+?)</font></span>%', $html, $match))
                     $this->stanje = $match[1];
                 else {
@@ -45,6 +48,7 @@ Class Xica {
                     $errorMsg = 'Greska prilikom ocitavanja prava';
                     return false;
                 }
+
                 if(preg_match('%<img id="rightframe_Image1" src="TempPic\\\\([0-9]+?).jpg" height="150" width="150" />%', $html, $match))
                     $this->slikaURL = "/TempPic\\{$match[1]}.jpg";
                 else {
@@ -59,7 +63,7 @@ Class Xica {
             $errorMsg = 'Greska x01';
             return false;
         }
-
+        return true;
     }
 
     public function pregledRacuna(&$errorMsg = '') {
@@ -104,7 +108,6 @@ Class Xica {
 
         $html = $this->aspParser->getData(ASPParser::METHOD_POST, "http://www.cap.srce.hr/Dnevniknovo.aspx", array("__EVENTTARGET" => 'ctl00$rightframe$DataGrid1$ctl'.$racunBroj.'$lb'));
 
-		$ret=array();
 		if(preg_match('%<span id="rightframe_Label5"><font face="Verdana" size="2">([^<]+)</font></span>%', $html, $match))
 			$ret['opis']=$match[1];
 		if(preg_match('%<span id="rightframe_Label1"><font face="Verdana" size="2">([^<]+)</font></span>%', $html, $match))
@@ -148,7 +151,7 @@ if($xica->login($_REQUEST['username'], $_REQUEST['password'], $error) == false)
 
 $xica->pregledRacuna();
 
-if(isset($_REQUEST['racun']))
-    echo json_encode($xica->racunInfo($_GET['racun']));
+if(isset($_GET['racun']))
+    echo json_encode($xica->racunInfo((int) $_GET['racun']));
 else
     echo $xica->toJson();
