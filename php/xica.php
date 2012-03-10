@@ -42,7 +42,7 @@ Class Xica {
                     $errorMsg = 'Greska prilikom ocitavanja stanja';
                     return false;
                 }
-                if(preg_match('%<span id="rightframe_RazinaPravaLabel"><b><font face="Verdana" size="2">([^ ]+?) kompletna obroka dnevno</font></b></span>%', $html, $match))
+                if(preg_match('%<span id="rightframe_RazinaPravaLabel"><b><font face="Verdana" size="2">([^ ]+?) kompletn(a?|i?) obrok(a?) dnevno</font></b></span>%', $html, $match))
                     $this->razinaPrava = $match[1];
                 else {
                     $errorMsg = 'Greska prilikom ocitavanja prava';
