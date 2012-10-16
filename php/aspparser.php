@@ -16,6 +16,7 @@ Class ASPParser {
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_COOKIEFILE, $this->cookiejar);
         curl_setopt($ch, CURLOPT_COOKIEJAR, $this->cookiejar);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
         if($method == self::METHOD_POST) {
             $data = array_merge($this->data, $data);
