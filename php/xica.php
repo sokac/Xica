@@ -152,7 +152,7 @@ if($xica->login($_REQUEST['username'], $_REQUEST['password'], $error) == false) 
 
 $xica->pregledRacuna();
 
-if(isset($_GET['racun']))
-    echo json_encode($xica->racunInfo((int) $_GET['racun']));
+if(isset($_REQUEST['racun']))
+    echo json_encode($xica->racunInfo((int) $_REQUEST['racun']));
 else
     echo $xica->toJson();

@@ -13,6 +13,7 @@
 		android:background="@drawable/login_prijava"
 		android:src="@xml/prijavaeff"
 		android:clickable="true"
+		android:contentDescription="Prijava"
 		android:layout_centerHorizontal="true"
 		android:layout_alignParentBottom="true"
 		android:layout_alignParentRight="true" />
@@ -22,32 +23,33 @@
 	   android:layout_marginRight="15dip"
 	   android:layout_alignBottom="@id/save"
 	   android:layout_toLeftOf="@id/save"
+	   android:contentDescription="login text"
 	   android:src="@drawable/login_text" />
 		
-	<EditText android:id="@+id/jmbg"
+	<EditText android:id="@+id/password"
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
-		android:layout_weight="1"
 		android:background="@drawable/login_jmbg"
-		android:inputType="number"
+		android:inputType="textPassword"
 		android:textColor="#ffffff"
 		android:paddingLeft="5dip"
 		android:paddingRight="5dip"
-		android:hint="jmbg"
+		android:hint="password"
 		android:layout_above="@id/save"
 		android:layout_alignRight="@id/save" />
 
-	<EditText android:id="@+id/jmbag"
+	<EditText android:id="@+id/email"
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
 		android:background="@drawable/login_jmbag"
-		android:layout_weight="1"
-		android:inputType="number"
+		android:inputType="textEmailAddress"
 		android:textColor="#ffffff"
 		android:paddingLeft="5dip"
 		android:paddingRight="5dip"
-		android:hint="jmbag"
-		android:layout_above="@id/jmbg"
-		android:layout_alignRight="@id/jmbg" />
+		android:hint=""
+		android:layout_above="@id/password"
+		android:layout_alignRight="@id/password">
+		<requestFocus />
+		</EditText>
 
 </RelativeLayout>

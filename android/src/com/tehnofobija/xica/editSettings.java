@@ -12,8 +12,8 @@ import android.widget.Toast;
 
 public class editSettings extends Activity{
 	public static final String SP = "postavke";
-	private EditText jmbag;
-	private EditText jmbg;
+	private EditText email;
+	private EditText password;
 	private ImageButton saveButton;
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,24 +23,24 @@ public class editSettings extends Activity{
         
         // get settings
         final SharedPreferences settings = getSharedPreferences(SP, 0);
-        String jmbagc=settings.getString("jmbag", "");
-        String jmbgc=settings.getString("jmbg", "");
+        String emailSaved=settings.getString("email", "");
+        String passwordSaved=settings.getString("password", "");
         
         // get elements
-        jmbag = (EditText) findViewById(R.id.jmbag);
-        jmbg = (EditText) findViewById(R.id.jmbg);
+        email = (EditText) findViewById(R.id.email);
+        password = (EditText) findViewById(R.id.password);
         
         // set the values!
-        jmbag.setText(jmbagc);
-        jmbg.setText(jmbgc);
+        email.setText(emailSaved);
+        password.setText(passwordSaved);
         
         this.saveButton=(ImageButton) this.findViewById(R.id.save);
         this.saveButton.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
-        		if(jmbag.getText().length()==10 && jmbg.getText().length()==13){
+        		if(email.getText().length() > 5 && password.getText().length() > 3){
         			SharedPreferences.Editor editor = settings.edit();
-        			editor.putString("jmbag", jmbag.getText().toString());
-        			editor.putString("jmbg", jmbg.getText().toString());
+        			editor.putString("email", email.getText().toString());
+        			editor.putString("password", password.getText().toString());
         			editor.commit();
             		setResult(1);
             		finish();

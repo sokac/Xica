@@ -47,8 +47,8 @@ import android.widget.Toast;
 public class xica extends Activity {
 	public static final String SP = "postavke";
 	private ProgressDialog dialog;
-	private String jmbag;
-	private String jmbg;
+	private String email;
+	private String password;
 	private SharedPreferences settings;
 	protected getXica provjera;
 	protected getRacun gRacun;
@@ -70,9 +70,9 @@ public class xica extends Activity {
 		}
 		public void focusedW(){
 				settings = getSharedPreferences(SP, 0);
-				jmbag=settings.getString("jmbag", "");
-				jmbg=settings.getString("jmbg", "");
-				if(jmbag.length()!=10 && jmbg.length()!=13){  // first time?
+				email=settings.getString("email", "");
+				password=settings.getString("password", "");
+				if(email.length() < 3 && password.length() < 3){  // first time?
 					Toast.makeText(getApplicationContext(), R.string.wrongSettings, Toast.LENGTH_SHORT).show();
 					Intent i1=new Intent(this, editSettings.class);
 					startActivityForResult(i1, 1);
@@ -120,8 +120,8 @@ public class xica extends Activity {
 					try {
 							// Add your data  
 							List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);  
-							nameValuePairs.add(new BasicNameValuePair("jmbag", jmbag));  
-							nameValuePairs.add(new BasicNameValuePair("jmbg", jmbg));
+							nameValuePairs.add(new BasicNameValuePair("username", email));  
+							nameValuePairs.add(new BasicNameValuePair("password", password));
 							httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));  
 				
 							// Execute HTTP Post Request  
@@ -283,8 +283,8 @@ public class xica extends Activity {
 				try {
 						// Add your data  
 						List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);  
-						nameValuePairs.add(new BasicNameValuePair("jmbag", jmbag));  
-						nameValuePairs.add(new BasicNameValuePair("jmbg", jmbg));
+						nameValuePairs.add(new BasicNameValuePair("username", email));  
+						nameValuePairs.add(new BasicNameValuePair("password", password));
 						nameValuePairs.add(new BasicNameValuePair("racun", Integer.toString(racun)));
 						httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));  
 						
